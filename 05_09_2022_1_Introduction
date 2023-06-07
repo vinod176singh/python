@@ -1,0 +1,393 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "bdeb323c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "23bdf12b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "name = [\"Vineet\",\"Akash\",\"Ankit\",\"Dimple\",\"Reena\",\"Esha\",\"Saurabh\",\"Sarika\",\"Harshada\",\"Shri\"]\n",
+    "surname = [\"Verma\",\"Bhui\",\"Lahase\",\"Acharya\",\"Madavi\",\"Thool\",\"Dixit\",\"Malegavi\",\"Patil\",\"Jaygude\"]\n",
+    "gender = [\"Male\",\"Male\",\"Male\",\"Female\",\"Female\",\"Female\",\"Male\",\"Female\",\"Female\",\"Male\"]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "e4daa463",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "name_df = pd.DataFrame({\"Name\":name,\"Surname\":surname,\"Gender\":gender})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "ade558b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Surname</th>\n",
+       "      <th>Gender</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Vineet</td>\n",
+       "      <td>Verma</td>\n",
+       "      <td>Male</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Akash</td>\n",
+       "      <td>Bhui</td>\n",
+       "      <td>Male</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Ankit</td>\n",
+       "      <td>Lahase</td>\n",
+       "      <td>Male</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Dimple</td>\n",
+       "      <td>Acharya</td>\n",
+       "      <td>Female</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Reena</td>\n",
+       "      <td>Madavi</td>\n",
+       "      <td>Female</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>Esha</td>\n",
+       "      <td>Thool</td>\n",
+       "      <td>Female</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>Saurabh</td>\n",
+       "      <td>Dixit</td>\n",
+       "      <td>Male</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>Sarika</td>\n",
+       "      <td>Malegavi</td>\n",
+       "      <td>Female</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>Harshada</td>\n",
+       "      <td>Patil</td>\n",
+       "      <td>Female</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>Shri</td>\n",
+       "      <td>Jaygude</td>\n",
+       "      <td>Male</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       Name   Surname  Gender\n",
+       "0    Vineet     Verma    Male\n",
+       "1     Akash      Bhui    Male\n",
+       "2     Ankit    Lahase    Male\n",
+       "3    Dimple   Acharya  Female\n",
+       "4     Reena    Madavi  Female\n",
+       "5      Esha     Thool  Female\n",
+       "6   Saurabh     Dixit    Male\n",
+       "7    Sarika  Malegavi  Female\n",
+       "8  Harshada     Patil  Female\n",
+       "9      Shri   Jaygude    Male"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "name_df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "e295bb67",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def get_full_name(name,surname,gender):\n",
+    "    if gender==\"Male\":\n",
+    "        full_name = \"Mr.\" + \" \" + name + \" \" + surname\n",
+    "        return full_name\n",
+    "    if gender == \"Female\":\n",
+    "        full_name = \"Miss.\" + \" \" + name +\" \"+surname\n",
+    "        return full_name"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "89557e8c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "name_df[\"Full Name\"] = name_df.apply(lambda x: get_full_name(x[\"Name\"],x[\"Surname\"],x[\"Gender\"]),axis=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "33d93de4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Surname</th>\n",
+       "      <th>Gender</th>\n",
+       "      <th>Full Name</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Vineet</td>\n",
+       "      <td>Verma</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>Mr. Vineet Verma</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Akash</td>\n",
+       "      <td>Bhui</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>Mr. Akash Bhui</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Ankit</td>\n",
+       "      <td>Lahase</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>Mr. Ankit Lahase</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Dimple</td>\n",
+       "      <td>Acharya</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>Miss. Dimple Acharya</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Reena</td>\n",
+       "      <td>Madavi</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>Miss. Reena Madavi</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>Esha</td>\n",
+       "      <td>Thool</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>Miss. Esha Thool</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>Saurabh</td>\n",
+       "      <td>Dixit</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>Mr. Saurabh Dixit</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>Sarika</td>\n",
+       "      <td>Malegavi</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>Miss. Sarika Malegavi</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>Harshada</td>\n",
+       "      <td>Patil</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>Miss. Harshada Patil</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>Shri</td>\n",
+       "      <td>Jaygude</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>Mr. Shri Jaygude</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       Name   Surname  Gender              Full Name\n",
+       "0    Vineet     Verma    Male       Mr. Vineet Verma\n",
+       "1     Akash      Bhui    Male         Mr. Akash Bhui\n",
+       "2     Ankit    Lahase    Male       Mr. Ankit Lahase\n",
+       "3    Dimple   Acharya  Female   Miss. Dimple Acharya\n",
+       "4     Reena    Madavi  Female     Miss. Reena Madavi\n",
+       "5      Esha     Thool  Female       Miss. Esha Thool\n",
+       "6   Saurabh     Dixit    Male      Mr. Saurabh Dixit\n",
+       "7    Sarika  Malegavi  Female  Miss. Sarika Malegavi\n",
+       "8  Harshada     Patil  Female   Miss. Harshada Patil\n",
+       "9      Shri   Jaygude    Male       Mr. Shri Jaygude"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "name_df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "81176a8f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Shri'"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "name.pop()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "886169df",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Vineet',\n",
+       " 'Akash',\n",
+       " 'Ankit',\n",
+       " 'Dimple',\n",
+       " 'Reena',\n",
+       " 'Esha',\n",
+       " 'Saurabh',\n",
+       " 'Sarika',\n",
+       " 'Harshada']"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "name"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "568003e7",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
