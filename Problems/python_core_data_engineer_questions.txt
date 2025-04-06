@@ -1,0 +1,142 @@
+1. String Split & Explode
+Given a dictionary like {'event_id': '1', 'events': 'a,b,c,d'}, write a function to return a list of dictionaries where each event becomes a new row.
+Input: {'event_id': '1', 'events': 'a,b,c'}
+Output: [{'event_id': '1', 'event': 'a'}, {'event_id': '1', 'event': 'b'}, {'event_id': '1', 'event': 'c'}]
+
+------------------------------------------------------------
+
+2. Flatten Nested Dict
+Write a function to flatten a nested dictionary into a flat dictionary with keys as the path to the values.
+Input: {'a': {'b': 1}}
+Output: {'a.b': 1}
+
+------------------------------------------------------------
+
+3. Group by Field
+Given a list of dictionaries, group them by a common key (e.g., 'user_id').
+Input: [{'user_id': 1, 'value': 10}, {'user_id': 1, 'value': 15}, {'user_id': 2, 'value': 5}]
+Output: {1: [{'value': 10}, {'value': 15}], 2: [{'value': 5}]}
+
+------------------------------------------------------------
+
+4. Custom Sort
+Sort a list of dictionaries by multiple fields.
+Input: [{'a': 2, 'b': 3}, {'a': 1, 'b': 5}]
+Sort by 'a' then 'b'
+Output: [{'a': 1, 'b': 5}, {'a': 2, 'b': 3}]
+
+------------------------------------------------------------
+
+5. Deduplication
+Remove duplicates from a list of dictionaries.
+Input: [{'a': 1}, {'a': 1}, {'a': 2}]
+Output: [{'a': 1}, {'a': 2}]
+
+------------------------------------------------------------
+
+6. Top K Elements
+Find the top K most frequent elements from a list.
+Input: ['a', 'b', 'a', 'c', 'a', 'b'], k=2
+Output: ['a', 'b']
+
+------------------------------------------------------------
+
+7. String Clean & Normalize
+Clean and normalize strings by removing special characters, trimming, and converting to lowercase.
+Input: ' Hello@World! '
+Output: 'hello world'
+
+------------------------------------------------------------
+
+8. Nested Key Search
+Search for a specific key in a deeply nested dictionary.
+Input: {'a': {'b': {'c': 42}}}, key='c'
+Output: 42
+
+------------------------------------------------------------
+
+9. List Difference / Symmetric Diff
+Find items that are in one list but not in the other.
+Input: [1, 2, 3], [3, 4, 5]
+Output: [1, 2, 4, 5]
+
+------------------------------------------------------------
+
+10. Chunking
+Split a large list into smaller chunks of size N.
+Input: [1,2,3,4,5,6], chunk size = 2
+Output: [[1,2], [3,4], [5,6]]
+
+------------------------------------------------------------
+
+11. Dict Merge with Rules
+Merge two dictionaries, summing the values if a key appears in both.
+Input: {'a': 1, 'b': 2}, {'a': 3, 'c': 4}
+Output: {'a': 4, 'b': 2, 'c': 4}
+
+------------------------------------------------------------
+
+12. Transpose Matrix
+Transpose a list of lists, converting rows into columns.
+Input: [[1, 2], [3, 4], [5, 6]]
+Output: [[1, 3, 5], [2, 4, 6]]
+
+------------------------------------------------------------
+
+13. Join Two Lists of Dicts
+Perform an inner join on two lists of dictionaries using a common key.
+Input: [{'id': 1, 'name': 'Alice'}], [{'id': 1, 'dept': 'HR'}]
+Output: [{'id': 1, 'name': 'Alice', 'dept': 'HR'}]
+
+------------------------------------------------------------
+
+14. Longest Increasing Subsequence
+Find the length of the longest increasing subsequence in a list.
+Input: [10, 9, 2, 5, 3, 7, 101, 18]
+Output: 4
+
+------------------------------------------------------------
+
+15. Sliding Window Max/Average
+Calculate the max or average value in each sliding window of size k.
+Input: [1,3,-1,-3,5,3,6,7], k=3
+Output: [3,3,5,5,6,7] (max in window)
+
+------------------------------------------------------------
+
+16. Running Total
+Return the cumulative sum of a list of numbers.
+Input: [1, 2, 3, 4]
+Output: [1, 3, 6, 10]
+
+------------------------------------------------------------
+
+17. Filter with Complex Condition
+Filter a list of dictionaries using multiple conditions.
+Input: [{'id': 1, 'val': 10}, {'id': 2, 'val': 5}]
+Condition: val > 6
+Output: [{'id': 1, 'val': 10}]
+
+------------------------------------------------------------
+
+18. Rearrange Dict Structure
+Pivot a list of dictionaries into a nested structure.
+Input: [{'year': 2020, 'sales': 100}, {'year': 2021, 'sales': 150}]
+Output: {'2020': {'sales': 100}, '2021': {'sales': 150}}
+
+------------------------------------------------------------
+
+19. Parse Log/CSV Line
+Parse a semi-structured line from a log or CSV into a dictionary.
+Input: 'user_id=123,time=2023-01-01'
+Output: {'user_id': '123', 'time': '2023-01-01'}
+
+------------------------------------------------------------
+
+20. Memory Efficient File Parser
+Read a large file line by line and process each line to avoid high memory usage.
+Input: 'file.txt' with millions of lines
+Output: One line at a time using a generator
+
+------------------------------------------------------------
+

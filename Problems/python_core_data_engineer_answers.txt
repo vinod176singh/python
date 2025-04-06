@@ -1,0 +1,19 @@
+1. String Split & Explode
+Given a dictionary like {'event_id': '1', 'events': 'a,b,c,d'}, write a function to return a list of dictionaries where each event becomes a new row.
+Input: {'event_id': '1', 'events': 'a,b,c'}
+Output: [{'event_id': '1', 'event': 'a'}, {'event_id': '1', 'event': 'b'}, {'event_id': '1', 'event': 'c'}]
+
+events_data={'event_id': '1', 'events': 'a,b,c'}
+result=[{'event_id':events_data['event_id'],'event':event}  for event in events_data['events'].split(',')]
+for row in result:
+  print(row)
+------------------------------------------------------------
+
+2. Flatten Nested Dict
+Write a function to flatten a nested dictionary into a flat dictionary with keys as the path to the values.
+Input: {'a': {'b': 1}}
+Output: {'a.b': 1}
+
+
+
+------------------------------------------------------------
